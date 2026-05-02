@@ -22,6 +22,7 @@ data class FormState(
     val prix: String = "",
     val couleur: String = "",
     val clarte: String = "",
+    val stock: String = "1",
     val notes: String = "",
     val imageUri: String? = null,
     val isLoading: Boolean = false,
@@ -58,6 +59,7 @@ class DiamondFormViewModel(
                     prix = diamond.prix,
                     couleur = diamond.couleur,
                     clarte = diamond.clarte,
+                    stock = diamond.stock.toString(),
                     notes = diamond.notes,
                     imageUri = diamond.imageUri
                 )
@@ -90,6 +92,10 @@ class DiamondFormViewModel(
         _formState.value = _formState.value.copy(clarte = value)
     }
 
+    fun onStockChange(value: String) {
+        _formState.value = _formState.value.copy(stock = value)
+    }
+
     fun onNotesChange(value: String) {
         _formState.value = _formState.value.copy(notes = value)
     }
@@ -115,6 +121,7 @@ class DiamondFormViewModel(
                 prix = current.prix.trim(),
                 couleur = current.couleur.trim(),
                 clarte = current.clarte.trim(),
+                stock = current.stock.toIntOrNull() ?: 1,
                 notes = current.notes.trim(),
                 imageUri = current.imageUri
             )

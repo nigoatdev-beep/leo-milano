@@ -221,6 +221,10 @@ private fun DiamondDetailContent(diamond: DiamondEntity) {
                     SpecRow(label = "Carats", value = diamond.carats)
                     SpecRow(label = "Couleur", value = diamond.couleur)
                     SpecRow(label = "Clarté", value = diamond.clarte)
+                    SpecRow(
+                        label = "Stock",
+                        value = if (diamond.stock <= 0) "Rupture de stock" else "${diamond.stock}"
+                    )
                 }
             }
 

@@ -84,12 +84,20 @@ fun DiamondCard(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
-                    Text(
-                        text = "${diamond.prix} €",
-                        style = MaterialTheme.typography.labelLarge,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.secondary
-                    )
+                    if (diamond.stock <= 0) {
+                        Text(
+                            text = "Rupture de stock",
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.error
+                        )
+                    } else {
+                        Text(
+                            text = "${diamond.stock} en stock",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                    }
                 }
             }
         }

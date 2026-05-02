@@ -13,6 +13,7 @@ data class DiamondEntity(
     val couleur: String,
     val clarte: String,
     val notes: String,
+    val stock: Int = 1,
     val imageUri: String? = null,
     val timestamp: Long = System.currentTimeMillis()
 )

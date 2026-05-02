@@ -279,6 +279,12 @@ fun DiamondFormScreen(
                                 keyboardType = KeyboardType.Number
                             )
                             LuxuryTextField(
+                                value = formState.stock,
+                                onValueChange = viewModel::onStockChange,
+                                label = "Stock",
+                                keyboardType = KeyboardType.Number
+                            )
+                            LuxuryTextField(
                                 value = formState.couleur,
                                 onValueChange = viewModel::onCouleurChange,
                                 label = "Couleur"
