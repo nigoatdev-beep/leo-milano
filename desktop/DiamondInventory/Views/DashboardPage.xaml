@@ -47,9 +47,11 @@
                                     Visibility="{x:Bind IsOutOfStock}">
                                 <TextBlock Text="Rupture de stock" FontSize="11" FontWeight="Bold" Foreground="Black"/>
                             </Border>
-                            <TextBlock Grid.Column="1" Text="{x:Bind Stock, StringFormat='{}{0} en stock'}" 
-                                       Foreground="{StaticResource GoldBrush}" FontSize="12"
-                                       Visibility="{x:Bind IsOutOfStock, Converter={StaticResource InverseBoolConverter}}"/>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="4"
+                                       Visibility="{x:Bind IsOutOfStock, Converter={StaticResource InverseBoolConverter}}">
+                                <TextBlock Text="{x:Bind Stock}" Foreground="{StaticResource GoldBrush}" FontSize="12"/>
+                                <TextBlock Text="en stock" Foreground="{StaticResource GoldBrush}" FontSize="12"/>
+                            </StackPanel>
                         </Grid>
                     </Grid>
                 </Grid>
