@@ -1,7 +1,10 @@
+using System;
+using System.IO;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using DiamondInventory.Models;
 using DiamondInventory.Services;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Windows.Storage;
@@ -25,6 +28,7 @@ public partial class DiamondFormViewModel : ObservableObject
     [ObservableProperty] private BitmapImage? _previewImage;
     [ObservableProperty] private string _title = "Nouveau Diamant";
     [ObservableProperty] private string _errorMessage = "";
+    [ObservableProperty] private bool _isSaved = false;
 
     public long? DiamondId => _existing?.Id;
     public bool IsEdit => _existing != null;
@@ -75,13 +79,13 @@ public partial class DiamondFormViewModel : ObservableObject
         }
     }
 
-    [RelayCommand]
-    private bool Save()
+    public void Save()
     {
         if (string.IsNullOrWhiteSpace(Nom))
         {
             ErrorMessage = "Le nom est obligatoire";
-            return false;
+            IsSaved = false;
+            return;
         }
 
         var diamond = new Diamond
@@ -103,6 +107,6 @@ public partial class DiamondFormViewModel : ObservableObject
         else
             _db.Insert(diamond);
 
-        return true;
+        IsSaved = true;
     }
 }

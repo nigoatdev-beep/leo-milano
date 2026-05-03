@@ -1,9 +1,11 @@
+using System.IO;
 using DiamondInventory.Models;
 using DiamondInventory.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media.Imaging;
+using Microsoft.UI.Xaml.Navigation;
 
 namespace DiamondInventory.Views;
 
@@ -59,7 +61,8 @@ public sealed partial class DiamondFormPage : Page
 
     private void OnSave(object sender, RoutedEventArgs e)
     {
-        if (ViewModel.SaveCommand.Execute(null))
+        ViewModel.Save();
+        if (ViewModel.IsSaved)
             (App.MainWindow as MainWindow)?.NavigateBack();
     }
 
