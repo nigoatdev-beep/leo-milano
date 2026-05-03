@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="DiamondInventory.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DiamondInventory.Views"
+    Title="Leo Milano - Inventaire Diamants"
+    Width="1200"
+    Height="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" 
+                Padding="20,12" BorderThickness="0,0,0,1" BorderBrush="{StaticResource GoldBrush}">
+            <Grid>
+                <TextBlock Text="Leo Milano" FontSize="24" FontWeight="Light" 
+                          Foreground="{StaticResource GoldBrush}" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+                    <Button x:Name="AddButton" Content="+ Nouveau" Click="OnAddClick"
+                            Background="{StaticResource GoldBrush}" Foreground="Black" FontWeight="SemiBold"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <Frame x:Name="ContentFrame" Grid.Row="1"/>
+    </Grid>
+</Window>
