@@ -1,3 +1,5 @@
+using System;
+
 namespace DiamondInventory.Models;
 
 public class Diamond
